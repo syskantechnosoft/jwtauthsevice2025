@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Customer Dashboard</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+	<div th:replace="~{fragments/header :: header-authenticated}"></div>
+
+	<main>
+		<div class="dashboard-welcome">
+			<h2>Welcome, Customer <span th:text="${username}">User</span>!</h2>
+		</div>
+		<div class="dashboard-content">
+			<p>This is your personalized customer dashboard.</p>
+			<p>Here you can view your orders, manage your profile, etc.</p>
+			<!-- Add customer-specific content here -->
+		</div>
+	</main>
+
+	<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+
+</html>

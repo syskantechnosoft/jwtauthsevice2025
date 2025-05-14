@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+
+	<!-- Header for Unauthenticated Users -->
+	<header th:fragment="header-unauthenticated">
+		<h1>Auth Service Portal</h1>
+		<nav>
+			<ul>
+				<li><a th:href="@{/login}">Login</a></li>
+				<li><a th:href="@{/register}">Register</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<!-- Header for Authenticated Users -->
+	<header th:fragment="header-authenticated">
+		<h1>Auth Service Portal</h1>
+		<nav>
+			<ul>
+				<li><a th:href="@{/dashboard}">My Dashboard</a></li>
+				<!-- Display role-specific links if needed -->
+				<li sec:authorize="hasRole('ADMIN')"><a th:href="@{/admin-dashboard}">Admin Panel</a></li>
+
+				<li>
+					<form th:action="@{/logout}" method="post" style="display: inline;">
+						<button type="submit" class="btn-link-style">Logout (<span
+								sec:authentication="name">User</span>)</button>
+					</form>
+				</li>
+			</ul>
+		</nav>
+		<style>
+			.btn-link-style {
+				background: none !important;
+				border: none;
+				padding: 0 !important;
+				color: #ecf0f1;
+				/* Match link color */
+				text-decoration: none;
+				cursor: pointer;
+				font-family: inherit;
+				font-size: inherit;
+				font-weight: bold;
+			}
+
+			.btn-link-style:hover {
+				background-color: #34495e !important;
+				/* Match link hover */
+				padding: 5px 10px !important;
+				border-radius: 4px;
+			}
+		</style>
+	</header>
+
+</body>
+
+</html>

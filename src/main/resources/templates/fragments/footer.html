@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+	<footer th:fragment="footer">
+		<p>© <span th:text="${#dates.year(#dates.createNow())}">2023</span> Your Company. All rights reserved.</p>
+	</footer>
+</body>
+
+</html>
