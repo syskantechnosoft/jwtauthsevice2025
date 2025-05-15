@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Manager Dashboard</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+	<div th:replace="~{fragments/header :: header-authenticated}"></div>
+
+	<main>
+		<div class="dashboard-welcome">
+			<h2>Welcome, Manager <span th:text="${username}">User</span>!</h2>
+		</div>
+		<div class="dashboard-content">
+			<p>This is the manager dashboard.</p>
+			<p>Access to team reports, performance metrics, and management tools.</p>
+			<!-- Add manager-specific content here -->
+		</div>
+	</main>
+
+	<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+
+</html>
