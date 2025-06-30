@@ -33,7 +33,8 @@ COPY --from=builder /workspace/app/target/extracted/snapshot-dependencies/ ./
 COPY --from=builder /workspace/app/target/extracted/application/ ./
 
 # H2 database configuration
-ENV SPRING_DATASOURCE_URL=jdbc:h2:file:/app/data/mydb
+# ENV SPRING_DATASOURCE_URL=jdbc:h2:file:/app/data/mydb
+ENV SPRING_DATASOURCE_URL=jdbc:h2:mem:testdb
 ENV SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.h2.Driver
 ENV SPRING_DATASOURCE_USERNAME=sa
 ENV SPRING_DATASOURCE_PASSWORD=
